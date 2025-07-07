@@ -18,7 +18,7 @@ services:
     image: nginx
     labels:
       traefik.enable: true
-      traefik.http.routers.nginx.rule: Host(`anytrade.io`)
+      traefik.http.routers.nginx.rule: Host(`nginx.anytrade.io`)
       traefik.http.routers.nginx.entrypoints: websecure
       traefik.http.routers.nginx.tls: true
     depends_on:
