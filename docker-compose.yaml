@@ -2,23 +2,23 @@
 
 services:
 
-  httpd:
-    image: httpd
-    labels:
-      traefik.enable: true
-      traefik.http.routers.httpd.rule: Host(`httpd.bret.lol`)
-      traefik.http.routers.httpd.entrypoints: websecure
-      traefik.http.routers.httpd.tls: true
-    depends_on:
-      traefik:
-        condition: service_healthy
+  # httpd:
+  #   image: httpd
+  #   labels:
+  #     traefik.enable: true
+  #     traefik.http.routers.httpd.rule: Host(`httpd.bret.lol`)
+  #     traefik.http.routers.httpd.entrypoints: websecure
+  #     traefik.http.routers.httpd.tls: true
+  #   depends_on:
+  #     traefik:
+  #       condition: service_healthy
 
 
   nginx:
     image: nginx
     labels:
       traefik.enable: true
-      traefik.http.routers.nginx.rule: Host(`nginx.bret.lol`)
+      traefik.http.routers.nginx.rule: Host(`anytrade.io`)
       traefik.http.routers.nginx.entrypoints: websecure
       traefik.http.routers.nginx.tls: true
     depends_on:
