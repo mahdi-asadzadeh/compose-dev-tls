@@ -13,6 +13,22 @@ services:
   #     traefik:
   #       condition: service_healthy
 
+  portainer:
+    image: registry-c25ea8a2dc-exchnage.apps.ir-central1.arvancaas.ir/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./portainer-data:/data
+    ports:
+      - 10000:9000
+    labels:
+      traefik.enable: true
+      traefik.http.routers.portainer.rule: Host(`portainer.payhubix.io`)
+      traefik.http.routers.portainer.entrypoints: websecure
+      traefik.http.routers.portainer.tls: true
 
   nginx:
     image: nginx
