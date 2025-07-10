@@ -34,7 +34,7 @@ services:
     image: nginx
     labels:
       traefik.enable: true
-      traefik.http.routers.nginx.rule: Host(`nginx.payhubix.io`)
+      traefik.http.routers.nginx.rule: Host(`registry.payhubix.io`)
       traefik.http.routers.nginx.entrypoints: websecure
       traefik.http.routers.nginx.tls: true
     depends_on:
